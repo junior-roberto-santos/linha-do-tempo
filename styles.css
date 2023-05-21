@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #2c2c31;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #57535a;
+}
+
+@keyframes entering {
+  0% {
+    background-color: #121215;
+  }
+  20% {
+    background-color: #354041;
+  }
+
+  60% {
+    background-color: #94d6ea;
+  }
+  80% {
+    background-color: #ae9bda;
+  }
+  90% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  background-color: #121215;
+  color: #eaeaea;
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  grid-template-areas: "profile timeline";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100vh;
+}
+nav {
+  padding: 200px;
+  grid-area: timeline;
+  overflow-y: scroll;
+  animation: entering 3s ease-in-out;
+}
+.memory {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.memory small {
+  color: #bebebf;
+  font-size: 14px;
+}
+
+.memory h1 {
+  font-size: 16px;
+
+}
+
+.memory img {
+  width: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.memory div {
+  width: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.memory:hover img {
+  transform: scale(1.2);
+}
+
+.memory p {
+  color: aliceblue;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+aside {
+  grid-area: profile;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  border-image: linear-gradient(#727275, #2c2c31) 1;
+
+  border-right: 1px solid;
+
+  background-image: url("./assets/background.svg");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+aside * {
+  animation: entering 3s ease-in-out;
+}
+
+aside img:nth-child(2) {
+  width: 180px;
+
+  height: 180px;
+
+  border-radius: 50%;
+
+  border: 3px solid transparent;
+
+  background: linear-gradient(#33d3b3, #36d8ed, #6a42d0) padding-box,
+    linear-gradient(#33d3b3, #36d8ed, #6a42d0) border-box;
+}
+
+aside img:nth-child(1) {
+  width: 150px;
+
+  height: 75px;
+
+  border-radius: 10px;
+}
+
+aside p {
+  font-size: 25px;
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.8fr;
+    grid-template-areas:
+      "profile"
+      "timeline";
+  }
+}
+
+ aside {
+  padding: 32px 12px;
+}
+/**
+nav {
+  overflow-y: visible;
+}
